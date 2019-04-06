@@ -12,7 +12,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 # AWS lambda has different stages, the pathname will mess up with the communication between front end and back end
 # to avoid that, need to set a pathname prefix equal to the environment name corresponding to AWS API gateway
-app.config["requests_pathname_prefix"] = "/dev"
+app.config["requests_pathname_prefix"] = "/dev" + app.config["requests_pathname_prefix"]
 
 # flask app can be accessed via server attribute from dash object
 server = app.server
